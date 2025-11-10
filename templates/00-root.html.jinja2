@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="style.css">
+    <title> {{ title }}</title>
+</head>
+<body>
+    <div class="container" style="min-height: 1px;">
+
+    <article>
+        <header class="entry-header">
+            <h1 class="entry-title"> {{ title }} </h1>
+        </header>
+    {{ intro_html  | safe }}
+    {{ models_html | safe }}
+    {{ outro_html  | safe }}
+    </article>
+    </div>
+</body>
+</html>
