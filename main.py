@@ -1,15 +1,87 @@
 #!/usr/bin/env python3
 
 import argparse
-from pathlib import Path
 import shutil
-from typing import Any
+import tomllib
+from pathlib import Path
+from typing import Annotated, Any, Literal
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-
-import tomllib
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
 LANGUAGES = ("pt",)
+
+
+FlexibleDate = Annotated[
+    str, StringConstraints(pattern=r"^(\d{4}(-\d{2}(-\d{2})?)?)?|(future)$")
+]
+NonEmptyStr = Annotated[str, StringConstraints(min_length=1)]
+ModelSize = Annotated[str, StringConstraints(pattern=r"^(\d+(\.\d+)?[MBT])?$")]
+
+
+class Availability(BaseModel):
+    available_now: bool
+    url: str | None = Field(default=None)
+    planned: bool | None = Field(default=None)
+
+    @model_validator(mode="after")
+    def validate_planned(self):
+        if self.available_now and self.planned is not None:
+            msg = "When 'available_now' is true, 'planned' should not be set"
+            raise ValueError(msg)
+        return self
+
+    @model_validator(mode="after")
+    def validate_url(self):
+        if self.available_now and not self.url:
+            msg = "When 'available_now' is true, 'url' must be set"
+            raise ValueError(msg)
+        return self
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class CutOffDate(BaseModel):
+    date: FlexibleDate
+    type: Literal["strict", "possibly_earlier", "possibly_later", ""]
+
+    @model_validator(mode="after")
+    def validate_combination(self):
+        if self.date and not self.type:
+            msg = "When 'date' is empty, 'type' must be empty too"
+            raise ValueError(msg)
+        if not self.date and self.type:
+            msg = "When 'date' is non-empty, 'type' must be non-empty too"
+            raise ValueError(msg)
+        return self
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class NameAndUrl(BaseModel):
+    name: NonEmptyStr
+    url: str
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class LanguageModel(BaseModel):
+    name: NonEmptyStr
+    url: str
+    language_varieties: list[Literal["pt-BR", "pt-PT", "gl-ES"]]
+    release_date: FlexibleDate
+    license: str
+    size: ModelSize
+    model_id: str
+    base_model: str
+    origin: list[NameAndUrl]
+    training_data: list[NameAndUrl]
+    knowledge_cutoff: CutOffDate
+    weight_availability: Availability
+    public_api_availability: Availability
+    online_chat_availability: Availability
+
+    model_config = ConfigDict(extra="forbid")
 
 
 def parse_metadata_tree(directory: Path):
@@ -19,13 +91,34 @@ def parse_metadata_tree(directory: Path):
         with metadata_file.open("rb") as fd:
             result.update(tomllib.load(fd))
     children = []
-    for subdir in directory.iterdir():
+    for subdir in sorted(directory.iterdir(), key=lambda f: f.name.lower()):
         if subdir.is_dir():
             if (child := parse_metadata_tree(subdir)) is not None:
                 children.append(child)
     if children:
         result["children"] = children
     return result or None
+
+
+def check_metadata_tree(
+    tree: dict[str, Any], parent_data: dict[str, Any] | None = None
+):
+    if parent_data is None:
+        parent_data = {}
+    children = tree.get("children", [])
+    if not children:
+        data = parent_data | {k: v for k, v in tree.items() if k != "children"}
+        print(f"\n\nVALIDATING '{data['name']}':")
+        LanguageModel.model_validate(data)
+        print("OK.")
+    else:
+        for child in children:
+            p_data = parent_data | {k: v for k, v in child.items() if k != "children"}
+            duplicate_keys = (set(parent_data) & set(child)) - {"name"}
+            if duplicate_keys:
+                msg = f"\n\nDUPLICATE KEYS in '{tree.get('name')}' and its parents: {duplicate_keys}."
+                raise ValueError(msg)
+            check_metadata_tree(child, p_data)
 
 
 def generate_html(
@@ -80,7 +173,9 @@ def main():
 
     args = parser.parse_args()
 
-    all_models = parse_metadata_tree(args.data_dir / "models")["children"]
+    tree = parse_metadata_tree(args.data_dir / "models")
+    check_metadata_tree(tree)
+    all_models = tree["children"]
     all_models.sort(key=lambda m: m["name"])
     with (args.data_dir / "contributors.toml").open("rb") as fd:
         contributors = tomllib.load(fd)["contributors"]

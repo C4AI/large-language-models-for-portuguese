@@ -3,7 +3,7 @@
     <ul style="margin-top: 0; margin-bottom: 0.2em; padding-left: 1.2em;">
 
         <li>
-            Nome: 
+            Nome:
             <strong>
             {% if model.url %}
                 <a href="{{ model.url }}"> {{ model.name }} </a>
@@ -13,6 +13,7 @@
             </strong>
         </li>
 
+        {% if model.release_date %}
         <li>
             Lançamento:
             {% if model.release_date == 'future' %}
@@ -21,6 +22,7 @@
                 {{ model.release_date }}
             {% endif %}
         </li>
+        {% endif %}
 
         {% if model.license %}
         <li>
@@ -33,7 +35,7 @@
         </li>
         {% endif %}
 
-        
+
         <li>
             Tamanho:
             {% if model.size %}
@@ -42,7 +44,7 @@
                 não encontrado
             {% endif %}
         </li>
-        
+
 
         {% if model.base_model %}
         <li>
@@ -66,7 +68,7 @@
         <li>
             Equipe:
             <ul>
-            {% for o in model.origin %} 
+            {% for o in model.origin %}
                 <li>
                     {% if o.url %}
                         <a href="{{ o.url }}"> {{ o.name }} </a>
@@ -82,7 +84,7 @@
             <li>
                 Dados de treinamento:
                 <ul>
-                {% for t in model.training_data %} 
+                {% for t in model.training_data %}
                     <li>
                         {% if t.url %}
                             <a href="{{ t.url }}"> {{ t.name }} </a>
@@ -120,17 +122,20 @@
         </li>
         {% endif %}
 
-        <li>
-            Disponibilidade dos pesos:
-            {% if model.weight_availability.available_now %}
-                <a href="{{ model.weight_availability.url }}">sim</a>
-            {% elif model.weight_availability.planned %}
-                pendente
-            {% else %}
-                não
-            {% endif %}
-        </li>
+        {% if model.weight_availability %}
+            <li>
+                Disponibilidade dos pesos:
+                {% if model.weight_availability.available_now %}
+                    <a href="{{ model.weight_availability.url }}">sim</a>
+                {% elif model.weight_availability.planned %}
+                    pendente
+                {% else %}
+                    não
+                {% endif %}
+            </li>
+        {% endif %}
 
+        {% if model.public_api_availability %}
         <li>
             API associada:
             {% if model.public_api_availability.available_now %}
@@ -141,8 +146,9 @@
                 não
             {% endif %}
         </li>
+        {% endif %}
 
-
+        {% if model.online_chat_availability %}
         <li>
             Chat online:
             {% if model.online_chat_availability.available_now %}
@@ -153,6 +159,7 @@
                 não
             {% endif %}
         </li>
-    
+        {% endif %}
+
     </ul>
 </details>
