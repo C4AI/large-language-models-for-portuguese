@@ -1,0 +1,28 @@
+url = "https://huggingface.co/maritaca-ai/sabia-7b"
+name = "Sabiá-7B"
+release_date = "2023-11-08"
+license = "LLaMA License"
+language_varieties = [ "pt-BR" ]
+size = "7B"
+base_model = "Llama 1"
+model_id = "sabia-7b"
+training_data = []
+
+[[origin]]
+name = "Maritaca AI"
+url = "https://www.maritaca.ai/"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/maritaca-ai/sabia-7b/tree/main"
+
+[knowledge_cutoff]
+date = "2022"
+type = "strict"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = true
+url = "https://evaristo.ai/models/Sabi%C3%A1%207B"

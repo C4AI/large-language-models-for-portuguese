@@ -1,0 +1,27 @@
+url = "https://arxiv.org/abs/2410.12049"
+name = "Sabiá-3"
+release_date = "2024-04"
+license = "proprietary"
+language_varieties = [ "pt-BR" ]
+size = ""
+base_model = ""
+training_data = []
+
+[[origin]]
+name = "Maritaca AI"
+url = "https://www.maritaca.ai/"
+
+[weight_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = "2023"
+type = "strict"
+
+[public_api_availability]
+available_now = true
+url = "https://docs.maritaca.ai/pt/visao-geral"
+
+[online_chat_availability]
+available_now = true
+url = "https://chat.maritaca.ai/"

@@ -1,0 +1,28 @@
+url = "https://chat.maritaca.ai/"
+name = "Sabiá-3.1"
+release_date = "2025-05"
+license = "proprietary"
+language_varieties = [ "pt-BR" ]
+size = ""
+base_model = ""
+model_id = "sabia-3.1"
+training_data = []
+
+[[origin]]
+name = "Maritaca AI"
+url = "https://www.maritaca.ai/"
+
+[weight_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = "2024-08"
+type = "strict"
+
+[public_api_availability]
+available_now = true
+url = "https://docs.maritaca.ai/pt/visao-geral"
+
+[online_chat_availability]
+available_now = true
+url = "https://chat.maritaca.ai/"

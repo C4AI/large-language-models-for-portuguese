@@ -1,0 +1,28 @@
+url = "https://arxiv.org/abs/2401.02909"
+name = "Bode"
+release_date = "2023-10-11"
+license = "MIT"
+language_varieties = [ "pt-BR" ]
+base_model = "Llama 2"
+
+[[training_data]]
+name = "Subconjunto em português do mC4"
+url = "https://www.tensorflow.org/datasets/catalog/c4#c4multilingual"
+
+[[origin]]
+name = "Recogna"
+url = "https://www.recogna.tech/"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/collections/recogna-nlp/bode-llm-em-portugues-65b97aa411162bf34f8da221"
+
+[knowledge_cutoff]
+date = "2023-07"
+type = "possibly_later"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false

@@ -1,0 +1,28 @@
+url = "https://amazoniaia.com.br/"
+name = "Amazônia IA"
+release_date = "2024-08-05"
+license = "proprietary"
+language_varieties = [ "pt-BR" ]
+size = ""
+base_model = ""
+model_id = ""
+training_data = []
+
+[[origin]]
+name = "Widelabs, Oracle, NVIDIA"
+url = "https://www.widelabs.com.br/"
+
+[weight_availability]
+available_now = false
+
+[public_api_availability]
+available_now = false
+planned = true
+
+[online_chat_availability]
+available_now = true
+url = "https://plataforma.amazoniaia.com.br/"
+
+[knowledge_cutoff]
+date = ""
+type = ""

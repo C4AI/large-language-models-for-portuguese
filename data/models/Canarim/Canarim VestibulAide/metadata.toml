@@ -1,0 +1,12 @@
+url = "https://nlp.rocks/projects/canarim-7b-vestibulaide"
+name = "Canarim VestibulAide"
+model_id = "Canarim-7B-VestibulAide"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/dominguesm/canarim-7b-vestibulaide"
+
+
+[[training_data]]
+name = "Provas de vestibulares"
+url = "https://nlp.rocks/projects/canarim-7b-vestibulaide"

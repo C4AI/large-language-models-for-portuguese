@@ -1,0 +1,20 @@
+name = "Canarim"
+license = "Llama 2 Community License"
+language_varieties = [ "pt-BR" ]
+size = "7B"
+base_model = "Llama 2"
+release_date = "2023-11-17"
+
+[[origin]]
+name = "Maicon Domingues"
+url = "https://github.com/DominguesM"
+
+[knowledge_cutoff]
+date = "2023-07"
+type = "possibly_later"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false

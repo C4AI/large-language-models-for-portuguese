@@ -1,0 +1,11 @@
+url = "https://nlp.rocks/projects/canarim-7b-instruct"
+name = "Canarim Instruct"
+model_id = "Canarim-7B-Instruct"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/dominguesm/Canarim-7B-Instruct"
+
+[[training_data]]
+name = "CC-MAIN-2023-23"
+url = "https://data.commoncrawl.org/crawl-data/CC-MAIN-2023-23/index.html"

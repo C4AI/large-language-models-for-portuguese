@@ -1,0 +1,31 @@
+url = "https://neuralmind.ai/2025/02/20/neuralmind-e-escavador-desenvolvem-l%C2%B3m-um-modelo-de-linguagem-inovador-para-o-sistema-juridico-brasileiro/"
+name = "L³M"
+release_date = "future"
+license = "proprietary"
+language_varieties = [ "pt-BR" ]
+size = ""
+base_model = ""
+model_id = ""
+training_data = []
+
+[[origin]]
+name = "NeuralMind"
+url = "https://neuralmind.ai/"
+
+[[origin]]
+name = "Escavador"
+url = "https://www.escavador.com/"
+
+[weight_availability]
+available_now = false
+
+[public_api_availability]
+available_now = false
+planned = true
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

@@ -1,0 +1,37 @@
+url = "https://doi.org/10.1007/978-3-031-73503-5_24"
+name = "Carvalho_pt-gl"
+release_date = "2024-03 até 2025-03"
+license = "Llama 3.1 Community License"
+language_varieties = [ "gl-ES", "pt-PT" ]
+size = "1.3B"
+base_model = "Cerebras-GPT"
+
+[[training_data]]
+name = "CorpusNOS"
+url = "https://github.com/proxectonos/corpora"
+
+[[training_data]]
+name = "Arquivo.pt"
+url = "http://arquivo.pt/"
+
+[[origin]]
+name = "CiTIUS"
+url = "https://citius.gal/"
+
+[[origin]]
+name = "ILG-USC"
+url = "https://ilg.usc.gal/"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/collections/Nos-PT/carvalho-family-67e423bf209c732396377b61"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

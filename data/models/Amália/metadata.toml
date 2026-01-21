@@ -1,0 +1,36 @@
+url = "https://www.portugal.gov.pt/pt/gc24/comunicacao/noticia?i=modelo-de-linguagem-em-grande-escala-para-a-lingua-portuguesa"
+name = "Amália"
+release_date = "future"
+license = ""
+language_varieties = [ "pt-PT" ]
+size = "9B"
+base_model = ""
+model_id = ""
+training_data = []
+
+[[origin]]
+name = "Governo de Portugal"
+url = "https://www.base.gov.pt/Base4/pt/resultados/?type=doc_documentos&id=2233342&ext=.pdf"
+
+[[origin]]
+name = "NOVA FCT"
+url = "https://www.fct.unl.pt/"
+
+[[origin]]
+name = "IST-UL"
+url = "https://tecnico.ulisboa.pt/pt/"
+
+[weight_availability]
+available_now = false
+planned = true
+
+[public_api_availability]
+available_now = false
+planned = true
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

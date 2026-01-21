@@ -1,0 +1,27 @@
+url = "https://aclanthology.org/2024.propor-1.45/"
+name = "GlórIA"
+release_date = "2024-02-26"
+license = "ClueWeb22 Dataset License"
+language_varieties = [ "pt-PT" ]
+size = "1.3B"
+base_model = "GPT-Neo"
+model_id = "GlorIA-1.3B"
+training_data = []
+
+[[origin]]
+name = "NOVA FCT"
+url = "https://www.fct.unl.pt/"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/NOVA-vision-language/GlorIA-1.3B"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

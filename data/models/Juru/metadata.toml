@@ -1,0 +1,27 @@
+url = "https://arxiv.org/abs/2403.18140v2"
+name = "Juru"
+release_date = "2025-06-29"
+license = ""
+language_varieties = [ "pt-BR" ]
+size = "7B"
+base_model = "Mistral"
+model_id = "Juru-7B"
+training_data = []
+
+[[origin]]
+name = "Roseval Malaquias Junior"
+url = "https://huggingface.co/roseval"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/roseval/Juru-7B"
+
+[knowledge_cutoff]
+date = "2024"
+type = "strict"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false

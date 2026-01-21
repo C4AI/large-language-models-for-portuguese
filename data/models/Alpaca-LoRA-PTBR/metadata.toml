@@ -1,0 +1,33 @@
+name = "Alpaca-LoRA-PTBR"
+release_date = "2023-03-18"
+license = "Creative Commons Attribution 4.0"
+language_varieties = [ "pt-BR" ]
+size = "7B"
+base_model = "Llama 1"
+model_id = "alpaca-lora-ptbr-7b"
+url = "https://huggingface.co/dominguesm/alpaca-lora-ptbr-7b"
+
+
+[[training_data]]
+name = "Stanford Alpaca (traduzido automaticamente)"
+url = "https://github.com/tatsu-lab/stanford_alpaca"
+
+[[origin]]
+name = "Maicon Domingues"
+url = "https://github.com/DominguesM"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/dominguesm/alpaca-lora-ptbr-7b"
+
+[knowledge_cutoff]
+date = "2022-09"
+type = "possibly_later"
+
+[public_api_availability]
+available_now = false
+url = ""
+
+[online_chat_availability]
+available_now = false
+url = ""

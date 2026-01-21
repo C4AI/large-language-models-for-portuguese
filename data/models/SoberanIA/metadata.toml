@@ -1,0 +1,29 @@
+url = "https://soberania.ai/"
+name = "SoberanIA"
+release_date = ""
+license = ""
+language_varieties = [ "pt-BR" ]
+size = ""
+base_model = ""
+model_id = ""
+training_data = []
+
+[[origin]]
+name = "Governo do Piauí"
+url = "https://www.pi.gov.br/"
+
+[weight_availability]
+available_now = false
+planned = true
+
+[public_api_availability]
+available_now = false
+planned = true
+
+[online_chat_availability]
+available_now = false
+planned = true
+
+[knowledge_cutoff]
+date = ""
+type = ""

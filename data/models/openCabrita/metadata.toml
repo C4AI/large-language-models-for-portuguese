@@ -1,0 +1,27 @@
+url = "https://arxiv.org/abs/2308.11878"
+name = "openCabrita"
+release_date = "2023-07-06"
+license = "Apache 2.0"
+size = "3B"
+base_model = "Llama 1"
+model_id = "open-cabrita3b"
+origin = []
+language_varieties = [ "pt-BR" ]
+
+[[training_data]]
+name = "Subconjunto em português do mC4"
+url = "https://www.tensorflow.org/datasets/catalog/c4#c4multilingual"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/22h/open-cabrita3b"
+
+[knowledge_cutoff]
+date = "2022-09"
+type = "possibly_later"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
