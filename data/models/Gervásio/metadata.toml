@@ -1,0 +1,12 @@
+name = "Gervásio"
+
+[[origin]]
+name = "Portulan Clarin"
+url = "https://portulanclarin.net/"
+
+[public_api_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

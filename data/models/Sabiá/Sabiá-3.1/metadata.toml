@@ -8,10 +8,6 @@ base_model = ""
 model_id = "sabia-3.1"
 training_data = []
 
-[[origin]]
-name = "Maritaca AI"
-url = "https://www.maritaca.ai/"
-
 [weight_availability]
 available_now = false
 

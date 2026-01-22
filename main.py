@@ -9,7 +9,7 @@ from typing import Annotated, Any, Literal
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
-LANGUAGES = ("pt",)
+LANGUAGES = ("pt", "en")
 
 
 FlexibleDate = Annotated[
@@ -47,6 +47,9 @@ class CutOffDate(BaseModel):
 
     @model_validator(mode="after")
     def validate_combination(self):
+        if self.date == "future":
+            msg = "Cutoff date does not accept future date"
+            raise ValueError(msg)
         if self.date and not self.type:
             msg = "When 'date' is empty, 'type' must be empty too"
             raise ValueError(msg)
@@ -109,7 +112,10 @@ def check_metadata_tree(
     if not children:
         data = parent_data | {k: v for k, v in tree.items() if k != "children"}
         print(f"\n\nVALIDATING '{data['name']}':")
-        LanguageModel.model_validate(data)
+        if "name" not in tree:
+            msg = "Missing name"
+            raise ValueError(msg)
+        tree["full_model"] = LanguageModel.model_validate(data)
         print("OK.")
     else:
         for child in children:
@@ -135,18 +141,23 @@ def generate_html(
         loader=FileSystemLoader(template_dir), autoescape=select_autoescape()
     )
 
+    with (template_dir / f"i18n-{lang}.toml").open("rb") as fd:
+        i18n = tomllib.load(fd)
+
     title = (template_dir / f"01-title-{lang}.txt").read_text()
 
     root_template = env.get_template("00-root.html.jinja2")
     intro_template = env.get_template(f"02-intro-{lang}.html.jinja2")
-    models_template = env.get_template(f"03-models-{lang}.html.jinja2")
-    model_template = env.get_template(f"04-model-{lang}.html.jinja2")
-    outro_template = env.get_template(f"05-outro-{lang}.html.jinja2")
+    models_template = env.get_template("03-models.html.jinja2")
+    model_template = env.get_template("04-model.html.jinja2")
+    outro_template = env.get_template("05-outro.html.jinja2")
 
     intro_html = intro_template.render()
-    rendered_models = [model_template.render(model=model) for model in models]
-    models_html = models_template.render(model_htmls=rendered_models)
-    outro_html = outro_template.render(contributors=contributors)
+    rendered_models = [
+        model_template.render(model=model, i18n=i18n) for model in models
+    ]
+    models_html = models_template.render(model_htmls=rendered_models, i18n=i18n)
+    outro_html = outro_template.render(contributors=contributors, i18n=i18n)
 
     html = root_template.render(
         lang=lang,
@@ -176,7 +187,6 @@ def main():
     tree = parse_metadata_tree(args.data_dir / "models")
     check_metadata_tree(tree)
     all_models = tree["children"]
-    all_models.sort(key=lambda m: m["name"])
     with (args.data_dir / "contributors.toml").open("rb") as fd:
         contributors = tomllib.load(fd)["contributors"]
     css_files = [*(Path(__file__).parent / "styles").glob("*.css")]

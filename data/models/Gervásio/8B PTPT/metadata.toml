@@ -8,21 +8,10 @@ base_model = "LLaMA 3.1"
 model_id = "gervasio-8b-portuguese-ptpt-decoder"
 training_data = []
 
-[[origin]]
-name = "Portulan Clarin"
-url = "https://portulanclarin.net/"
-
 [weight_availability]
 available_now = true
 url = "https://huggingface.co/PORTULAN/gervasio-8b-portuguese-ptpt-decoder/tree/main"
 
-[public_api_availability]
-available_now = false
-
 [online_chat_availability]
 available_now = true
 url = "https://evaristo.ai/models/Gerv%C3%A1sio%208B%20PTPT"
-
-[knowledge_cutoff]
-date = ""
-type = ""

@@ -1,0 +1,201 @@
+{% macro make_details(model) -%}
+<details style="margin-bottom: 1.2em; padding: 0.8em 1em; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+    <summary style="font-weight: bold; color: #01484e; font-size: 1.1em; cursor: pointer;display:list-item;">{{ model.name }}</summary>
+    <ul style="margin-top: 0; margin-bottom: 0.2em; padding-left: 1.2em;">
+
+        <li>
+            {{ i18n.model_name }}
+            <strong>
+            {% if model.url %}
+                <a href="{{ model.url }}"> {{ model.name }} </a>
+            {% else %}
+                {{ model.name }}
+            {% endif %}
+            </strong>
+        </li>
+
+        {% if model.release_date or (model.full_model and not model.full_model.release_date) %}
+        <li>
+            {{ i18n.release_date }}
+            {% if model.release_date == 'future' %}
+                {{ i18n.release_date_future }}
+            {% elif model.release_date %}
+                {{ model.release_date }}
+            {% else %}
+                {{ i18n.release_date_not_found }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if model.license or (model.full_model and not model.full_model.license) %}
+        <li>
+            {{ i18n.license }}
+            {% if not model.license %}
+                {{ i18n.license_not_found }}
+            {% elif model.license == 'proprietary' %}
+                {{ i18n.license_proprietary }}
+            {% else %} {# other licenses are not translated #}
+                {{ model.license }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if model.size or (model.full_model and not model.full_model.size) %}
+        <li>
+            {{ i18n.size }}
+            {% if model.size %}
+                {{ model.size }}
+            {% else %}
+                {{ i18n.size_not_found }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+
+        {% if model.base_model or (model.full_model and not model.full_model.base_model) %}
+        <li>
+            {{ i18n.base_model }}
+            {% if model.base_model %}
+                {{ model.base_model }}
+            {% else %}
+                {{ i18n.base_model_not_found }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if (model.knowledge_cutoff and model.knowledge_cutoff.date) or (model.full_model and not model.full_model.knowledge_cutoff.date) %}
+        <li>
+            {{ i18n.knowledge_cutoff }}
+            {% if not model.knowledge_cutoff or not model.knowledge_cutoff.date %}
+                {{ i18n.knowledge_cutoff_not_found }}
+            {% else %}
+                {{ model.knowledge_cutoff.date }}
+
+                {% if model.knowledge_cutoff.type == 'possibly_later' %}
+                    {{ i18n.knowledge_cutoff_possibly_later }}
+                {% elif model.knowledge_cutoff.type == 'possibly_earlier' %}
+                    {{ i18n.knowledge_cutoff_possibly_earlier }}
+                {% endif %}
+            {% endif %}
+
+        </li>
+        {% endif %}
+
+        {% if model.origin %}
+        <li>
+            {{ i18n.origin }}
+            <ul>
+            {% for o in model.origin %}
+                <li>
+                    {% if o.url %}
+                        <a href="{{ o.url }}"> {{ o.name }} </a>
+                    {% else %}
+                        {{ o.name }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
+
+        {% if model.training_data or (model.full_model and not model.full_model.training_data) %}
+            <li>
+                {{ i18n.training_data }}
+                {% if model.training_data %}
+                    <ul>
+                    {% for t in model.training_data %}
+                        <li>
+                            {% if t.url %}
+                                <a href="{{ t.url }}"> {{ t.name }} </a>
+                            {% else %}
+                                {{ t.name }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    {{ i18n.training_data_not_found }}
+                {% endif %}
+            </li>
+        {% endif %}
+
+        {% if model.language_varieties or (model.full_model and not model.full_model.language_varieties) %}
+        <li>
+            {% if model.language_varieties | length == 1 %}
+                {{ i18n.language_variety }}
+            {% else %}
+                {{ i18n.language_varieties }}
+            {% endif %}
+            {% if model.language_varieties %}
+                {% for lv in model.language_varieties %}
+                    {% if loop.index > 1 %} + {% endif %}
+                    {{ i18n.language_names.get(lv, lv) }}
+                {% endfor %}
+            {% else %}
+                {{ i18n.language_varieties_not_found }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if model.model_id or (model.full_model and not model.full_model.model_id) %}
+        <li>
+            {{ i18n.model_id }}
+            {% if model.model_id %}
+                <code>{{ model.model_id }}</code>
+            {% else %}
+                {{ i18n.model_id_not_found }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if model.weight_availability %}
+            <li>
+                {{ i18n.weight_availability }}
+                {% if model.weight_availability.available_now %}
+                    <a href="{{ model.weight_availability.url }}">{{ i18n.weight_availability_yes }}</a>
+                {% elif model.weight_availability.planned %}
+                    {{ i18n.weight_availability_pending }}
+                {% else %}
+                    {{ i18n.weight_availability_no }}
+                {% endif %}
+            </li>
+        {% endif %}
+
+        {% if model.public_api_availability %}
+        <li>
+            {{ i18n.public_api_availability }}
+            {% if model.public_api_availability.available_now %}
+                <a href="{{ model.public_api_availability.url }}">{{ i18n.public_api_availability_yes }}</a>
+            {% elif model.public_api_availability.planned %}
+                {{ i18n.public_api_availability_pending }}
+            {% else %}
+                {{ i18n.public_api_availability_no }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+        {% if model.online_chat_availability %}
+        <li>
+            {{ i18n.online_chat_availability }}
+            {% if model.online_chat_availability.available_now %}
+                <a href="{{ model.online_chat_availability.url }}">{{ i18n.online_chat_availability_yes }}</a>
+            {% elif model.online_chat_availability.planned %}
+                {{ i18n.online_chat_availability_pending }}
+            {% else %}
+                {{ i18n.online_chat_availability_no }}
+            {% endif %}
+        </li>
+        {% endif %}
+
+
+        {% if model.children %}
+            {% for c in model.children %}
+                {{ make_details(c) }}
+            {% endfor %}
+        {% endif %}
+
+    </ul>
+</details>
+{%- endmacro %}
+
+{{ make_details(model) }}

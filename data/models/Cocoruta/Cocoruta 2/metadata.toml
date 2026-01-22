@@ -2,15 +2,10 @@ name = "Cocoruta 2"
 release_date = "2025-02-10"
 url = "https://huggingface.co/felipeoes/cocoruta-2-8b"
 license = "Llama 3.1 Community License"
-language_varieties = [ "pt-BR" ]
 size = "8B"
 base_model = "Llama 3.1"
 model_id = "cororuta-2-8b"
 training_data = []
-
-[[origin]]
-name = "C4AI-USP"
-url = "https://c4ai.inova.usp.br/"
 
 [weight_availability]
 available_now = true
@@ -19,11 +14,3 @@ url = "https://huggingface.co/felipeoes/cocoruta-2-8b"
 [knowledge_cutoff]
 date = "2025"
 type = "strict"
-
-[public_api_availability]
-available_now = false
-url = ""
-
-[online_chat_availability]
-available_now = false
-url = ""

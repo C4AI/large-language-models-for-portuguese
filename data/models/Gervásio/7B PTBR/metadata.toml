@@ -15,20 +15,9 @@ url = "https://gluebenchmark.com/tasks"
 name = "SuperGLUE"
 url = "https://super.gluebenchmark.com/tasks"
 
-[[origin]]
-name = "Portulan Clarin"
-url = "https://portulanclarin.net/"
-
 [weight_availability]
 available_now = true
 url = "https://huggingface.co/PORTULAN/gervasio-7b-portuguese-ptbr-decoder"
 
-[public_api_availability]
-available_now = false
-
 [online_chat_availability]
 available_now = false
-
-[knowledge_cutoff]
-date = ""
-type = ""

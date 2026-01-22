@@ -1,24 +1,9 @@
-url = "https://doi.org/10.1109/IJCNN60899.2024.10650895"
 name = "Cocoruta"
-release_date = "2023-10-28"
-license = "Llama 2 Community License"
 language_varieties = [ "pt-BR" ]
-size = "7B"
-base_model = "Llama 2"
-model_id = "cocoruta-7b"
-training_data = []
 
 [[origin]]
 name = "C4AI-USP"
 url = "https://c4ai.inova.usp.br/"
-
-[weight_availability]
-available_now = true
-url = "https://huggingface.co/felipeoes/cocoruta-7b"
-
-[knowledge_cutoff]
-date = "2023"
-type = "strict"
 
 [public_api_availability]
 available_now = false

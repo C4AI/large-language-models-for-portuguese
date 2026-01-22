@@ -1,1 +1,4 @@
+name = "Llama-Carvalho-GL"
 model_id = "Llama-Carvalho-GL"
+size = "8B"
+base_model = "Llama 3.1"

@@ -7,10 +7,6 @@ size = ""
 base_model = ""
 training_data = []
 
-[[origin]]
-name = "Maritaca AI"
-url = "https://www.maritaca.ai/"
-
 [weight_availability]
 available_now = false
 

@@ -6,7 +6,7 @@ size = "3B"
 base_model = "Llama 1"
 model_id = "open-cabrita3b"
 origin = []
-language_varieties = [ "pt-BR" ]
+language_varieties = [ ]
 
 [[training_data]]
 name = "Subconjunto em português do mC4"

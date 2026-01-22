@@ -9,8 +9,16 @@ model_id = ""
 training_data = []
 
 [[origin]]
-name = "Widelabs, Oracle, NVIDIA"
+name = "Widelabs"
 url = "https://www.widelabs.com.br/"
+
+[[origin]]
+name = "Oracle"
+url = "https://www.oracle.com/"
+
+[[origin]]
+name = "NVIDIA"
+url = "https://www.nvidia.com/"
 
 [weight_availability]
 available_now = false
