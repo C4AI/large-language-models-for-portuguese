@@ -9,7 +9,7 @@ origin = []
 language_varieties = [ ]
 
 [[training_data]]
-name = "Subconjunto em português do mC4"
+name = "Portuguese-language subset of mC4"
 url = "https://www.tensorflow.org/datasets/catalog/c4#c4multilingual"
 
 [weight_availability]

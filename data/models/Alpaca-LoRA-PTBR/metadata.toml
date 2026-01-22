@@ -9,7 +9,7 @@ url = "https://huggingface.co/dominguesm/alpaca-lora-ptbr-7b"
 
 
 [[training_data]]
-name = "Stanford Alpaca (traduzido automaticamente)"
+name = "Stanford Alpaca (automatically translated)"
 url = "https://github.com/tatsu-lab/stanford_alpaca"
 
 [[origin]]

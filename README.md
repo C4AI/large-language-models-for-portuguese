@@ -9,7 +9,9 @@ Criteria:
 
 Models are grouped into "families", usually when they share a name and have been developed by the same team.
 
-# Adding models
+## Adding models
+
+Pull requests are welcome.
 
 To add models to our list, create directories under *data/models/* containing `metadata.toml` files
 following this template:
@@ -118,7 +120,23 @@ its subdirectories must not redefine `size`).
       or a blank string (when the information was not found). The subfield `type` must be one of
       `exact`, `possibly_earlier` and `possibly_later`, or blank if the date is also blank.
 
-# Running the script:
+
+## Translating the fields
+
+In the *metadata.toml* files, all the values must be written **in English**,
+except for proper names (of people, institutions, datasets, etc.).
+
+The values of the fields `license`, `base_model`, and the subfield `name`
+of the fields `training_data` and `origin` can be translated into the other
+supported languages by creating an *i18n-\<LANG\>.toml* file (e.g. *i18n-pt.toml*)
+in the same directory, following this format:
+
+```toml
+"Original string 1" = "Translated string 1"
+"Original string 2" = "Translated string 2"
+```
+
+## Running the script:
 
 Install `uv`, then run `uv sync` to install the dependencies.
 
@@ -130,4 +148,4 @@ uv run python main.py data/ html/
 
 If there are errors, the script will print them and halt.
 Otherwise, HTML files will be generated in the *html/* directory,
-one per language.
+one per language (currently, English and Portuguese).

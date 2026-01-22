@@ -95,6 +95,13 @@ def parse_metadata_tree(directory: Path):
     if metadata_file.is_file():
         with metadata_file.open("rb") as fd:
             result.update(tomllib.load(fd))
+    for lang in LANGUAGES:
+        i18n_file = directory / f"i18n-{lang}.toml"
+        if i18n_file.is_file():
+            with i18n_file.open("rb") as fd:
+                translations = tomllib.load(fd)
+            result.setdefault("_i18n", {})
+            result["_i18n"][lang] = translations
     children = []
     for subdir in sorted(directory.iterdir(), key=lambda f: f.name.lower()):
         if subdir.is_dir():
@@ -112,7 +119,9 @@ def check_metadata_tree(
         parent_data = {}
     children = tree.get("children", [])
     if not children:
-        data = parent_data | {k: v for k, v in tree.items() if k != "children"}
+        data = parent_data | {
+            k: v for k, v in tree.items() if k != "children" and k != "_i18n"
+        }
         print(f"\n\nVALIDATING '{data['name']}':")
         if "name" not in tree:
             msg = "Missing name"
@@ -121,7 +130,9 @@ def check_metadata_tree(
         print("OK.")
     else:
         for child in children:
-            p_data = parent_data | {k: v for k, v in child.items() if k != "children"}
+            p_data = parent_data | {
+                k: v for k, v in child.items() if k != "children" and k != "_i18n"
+            }
             duplicate_keys = (set(parent_data) & set(child)) - {"name"}
             if duplicate_keys:
                 msg = f"\n\nDUPLICATE KEYS in '{tree.get('name')}' and its parents: {duplicate_keys}."
@@ -156,17 +167,22 @@ def generate_html(
 
     def format_date(d):
         # the format has already been validated before
-        parts = list(map(int, d.split('-')))
+        parts = list(map(int, d.split("-")))
         year = parts[0]
         month = parts[1] if len(parts) >= 2 else 1
         day = parts[2] if len(parts) == 3 else 1
         date = datetime.date(year, month, day)
-        patterns = ['y', 'MMMMy', 'dMMMMy']
+        patterns = ["y", "MMMMy", "dMMMMy"]
         return format_skeleton(patterns[len(parts) - 1], date, locale=lang)
 
     intro_html = intro_template.render()
     rendered_models = [
-        model_template.render(model=model, i18n=i18n, format_date=format_date)
+        model_template.render(
+            model=model,
+            i18n=i18n,
+            format_date=format_date,
+            model_i18n=model.get("_i18n", {}).get(lang, {}),
+        )
         for model in models
     ]
     models_html = models_template.render(model_htmls=rendered_models, i18n=i18n)

@@ -1,3 +1,11 @@
+{% macro translate_value(value) -%}
+    {% if not model_i18n %}
+        {{ value }}
+    {% else %}
+        {{ model_i18n.get(value, value) }}
+    {% endif %}
+{% endmacro %}
+
 {% macro make_details(model) -%}
 <details style="margin-bottom: 1.2em; padding: 0.8em 1em; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
     <summary style="font-weight: bold; color: #01484e; font-size: 1.1em; cursor: pointer;display:list-item;">{{ model.name }}</summary>
@@ -34,8 +42,8 @@
                 {{ i18n.license_not_found }}
             {% elif model.license == 'proprietary' %}
                 {{ i18n.license_proprietary }}
-            {% else %} {# other licenses are not translated #}
-                {{ model.license }}
+            {% else %}
+                {{ translate_value(model.license) }}
             {% endif %}
         </li>
         {% endif %}
@@ -56,7 +64,7 @@
         <li>
             <i>{{ i18n.base_model }}</i>
             {% if model.base_model %}
-                {{ model.base_model }}
+                {{ translate_value(model.base_model) }}
             {% else %}
                 {{ i18n.base_model_not_found }}
             {% endif %}
@@ -88,18 +96,18 @@
                 {% if model.origin | length == 1 %}
                     {% set o = model.origin[0] %}
                     {% if o.url %}
-                        <a href="{{ o.url }}"> {{ o.name }} </a>
+                        <a href="{{ o.url }}"> {{ translate_value(o.name) }} </a>
                     {% else %}
-                        {{ o.name }}
+                        {{ translate_value(o.name) }}
                     {% endif %}
                 {% else %}
                 <ul>
                     {% for o in model.origin %}
                         <li>
                             {% if o.url %}
-                                <a href="{{ o.url }}"> {{ o.name }} </a>
+                                <a href="{{ o.url }}"> {{ translate_value(o.name) }} </a>
                             {% else %}
-                                {{ o.name }}
+                                {{ translate_value(o.name) }}
                             {% endif %}
                         </li>
                     {% endfor %}
@@ -118,18 +126,18 @@
                     {% if model.training_data | length == 1 %}
                         {% set t = model.training_data[0] %}
                         {% if t.url %}
-                            <a href="{{ t.url }}"> {{ t.name }} </a>
+                            <a href="{{ t.url }}"> {{ translate_value(t.name) }} </a>
                         {% else %}
-                            {{ t.name }}
+                            {{ translate_value(t.name) }}
                         {% endif %}
                     {% else %}
                         <ul>
                         {% for t in model.training_data %}
                             <li>
                                 {% if t.url %}
-                                    <a href="{{ t.url }}"> {{ t.name }} </a>
+                                    <a href="{{ t.url }}"> {{ translate_value(t.name) }} </a>
                                 {% else %}
-                                    {{ t.name }}
+                                    {{ translate_value(t.name) }}
                                 {% endif %}
                             </li>
                         {% endfor %}
