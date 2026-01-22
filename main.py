@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 import argparse
+import datetime
 import shutil
 import tomllib
 from pathlib import Path
 from typing import Annotated, Any, Literal
 
+from babel.dates import format_skeleton
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
@@ -152,9 +154,20 @@ def generate_html(
     model_template = env.get_template("04-model.html.jinja2")
     outro_template = env.get_template("05-outro.html.jinja2")
 
+    def format_date(d):
+        # the format has already been validated before
+        parts = list(map(int, d.split('-')))
+        year = parts[0]
+        month = parts[1] if len(parts) >= 2 else 1
+        day = parts[2] if len(parts) == 3 else 1
+        date = datetime.date(year, month, day)
+        patterns = ['y', 'MMMMy', 'dMMMMy']
+        return format_skeleton(patterns[len(parts) - 1], date, locale=lang)
+
     intro_html = intro_template.render()
     rendered_models = [
-        model_template.render(model=model, i18n=i18n) for model in models
+        model_template.render(model=model, i18n=i18n, format_date=format_date)
+        for model in models
     ]
     models_html = models_template.render(model_htmls=rendered_models, i18n=i18n)
     outro_html = outro_template.render(contributors=contributors, i18n=i18n)

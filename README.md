@@ -93,11 +93,12 @@ its subdirectories must not redefine `size`).
 9. `training_data`: 
     List of datasets used to train/fine-tune the model. 
     Write one `[[training_data]]` block for each dataset, with its `name=` (required) and `url=` (required even if blank).
-    If the training data is not known, remove the `[[training_data]]` blocks and write the line `training_data = [ ]`.
+    If the training data is not known, remove the `[[training_data]]` blocks and write the line `training_data = [ ]`
+    **before** all sections.
 10. `origin`: 
     List of people or institutions responsible for developing the model.
     Write one `[[origin]]` block for each item, with its `name=` (required) and `url=` (required even if blank).
-    If the origin is not known, remove the `[[origin]]` blocks and write the line `origin = [ ]`.
+    If the origin is not known, remove the `[[origin]]` blocks and write the line `origin = [ ]` **before** all sections.
 11. `weight_availability`: Public availability of the model's weights. If the subfield `available_now`
       is `false`, then no `url` should be given, and the optional subfield `planned = true` can be added
       in case the weights are expected to be released in the future. If the subfield `available_now`
