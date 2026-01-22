@@ -1,0 +1,29 @@
+name: Check data integrity on push
+
+on:
+  push:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        run: |
+          pip install uv
+
+      - name: Sync dependencies
+        run: |
+          uv sync
+
+      - name: Run script
+        run: |
+          uv run python main.py data/ html/
