@@ -2,6 +2,7 @@ name: Check data integrity on push
 
 on:
   push:
+  pull_request: 
 
 jobs:
   run-script:
