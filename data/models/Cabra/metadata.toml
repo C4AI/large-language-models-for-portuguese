@@ -1,19 +1,9 @@
 name = "Cabra"
-url = "https://huggingface.co/botbotrobotics/Cabra"
-release_date = ""
-license = ""
 language_varieties = [ "pt-BR" ]
-size = ""
-base_model = ""
-model_id = ""
 
 [[origin]]
 name = "BotBot.AI"
 url = "https://www.botbot.bot/"
-
-[weight_availability]
-available_now = true
-url = "https://huggingface.co/botbotrobotics/Cabra"
 
 [public_api_availability]
 available_now = false
@@ -21,6 +11,3 @@ available_now = false
 [online_chat_availability]
 available_now = false
 
-[knowledge_cutoff]
-date = ""
-type = ""
