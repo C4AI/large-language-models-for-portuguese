@@ -26,5 +26,5 @@ available_now = false
 available_now = false
 
 [knowledge_cutoff]
-date = ""
-type = ""
+date = "2024-10-10"
+type = "possibly_earlier"

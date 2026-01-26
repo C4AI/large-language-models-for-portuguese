@@ -11,5 +11,9 @@ name = "Cabra 12k (internal dataset)"
 url = ""
 
 [knowledge_cutoff]
-date = ""
-type = ""
+date =  "2024-05"
+type = "possibly_earlier"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/botbotrobotics/CabraMistral-v3-7b-32k"

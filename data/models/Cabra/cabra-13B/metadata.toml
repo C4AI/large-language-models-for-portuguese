@@ -11,5 +11,9 @@ name = "PortugueseDolly"
 url = "https://huggingface.co/datasets/botbotrobotics/PortugueseDolly"
 
 [knowledge_cutoff]
-date = "2024"
+date = "2023-08"
 type = "possibly_earlier"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/botbotrobotics/cabra13b"
