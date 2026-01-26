@@ -1,0 +1,30 @@
+name = "Aira 2 Portuguese 1.7B"
+url = "https://huggingface.co/nicholasKluge/Aira-2-portuguese-1B7"
+release_date = "2024-10-10"
+license = "RAIL License"
+language_varieties = [ "pt-BR" ]
+size = "1.7B"
+base_model = "BLOOM"
+model_id = "Aira-2-portuguese-1B7"
+
+[[training_data]]
+name = "Instruct-Aira Dataset (Portuguese subset)"
+url = "https://huggingface.co/datasets/nicholasKluge/instruct-aira-dataset"
+
+[[origin]]
+name = "Nicholas Kluge"
+url = "http://linkedin.com/in/nicholaskluge"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/nicholasKluge/Aira-2-portuguese-1B7"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

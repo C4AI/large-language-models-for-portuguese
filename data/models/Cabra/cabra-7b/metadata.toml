@@ -1,0 +1,15 @@
+name = "Cabra (Llama 2 7B)"
+url = "https://huggingface.co/botbotrobotics/Cabra"
+release_date = "2023-08"
+license = "Llama 2 Community License"
+size = "7B"
+base_model = "Llama 2 7B"
+model_id = "Cabra"
+
+[[training_data]]
+name = "PortugueseDolly"
+url = "https://huggingface.co/datasets/botbotrobotics/PortugueseDolly"
+
+[knowledge_cutoff]
+date = "2024"
+type = "possibly_earlier"

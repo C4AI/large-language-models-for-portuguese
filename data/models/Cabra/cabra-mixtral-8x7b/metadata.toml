@@ -1,0 +1,15 @@
+name = "Cabra Mixtral 8x7B"
+url = "https://huggingface.co/botbotrobotics/CabraMixtral-8x7b"
+release_date = "2024-07"
+license = "Research only - non commercial use"
+size = "47B"
+base_model = "Mistral 8x7B"
+model_id = "CabraMixtral-8x7b"
+
+[[training_data]]
+name = "Cabra 30k (internal dataset)"
+url = ""
+
+[knowledge_cutoff]
+date = ""
+type = ""

@@ -1,0 +1,15 @@
+name = "Cabra Mistral v3 7B 32k"
+url = "https://huggingface.co/botbotrobotics/CabraMistral-v3-7b-32k"
+release_date = "2024-05"
+license = "Research only - non commercial use"
+size = "7B"
+base_model = "Mistral 7B Instruct 0.3"
+model_id = "CabraMistral-v3-7b-32k"
+
+[[training_data]]
+name = "Cabra 12k (internal dataset)"
+url = ""
+
+[knowledge_cutoff]
+date = ""
+type = ""

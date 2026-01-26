@@ -1,0 +1,15 @@
+name = "Cabra Qwen 14B"
+url = "https://huggingface.co/botbotrobotics/CabraQwen14b"
+release_date = "2024-03"
+license = "Qwen 1.5 License"
+size = "14B"
+base_model = "Qwen 1.5 14B"
+model_id = "CabraQwen14b"
+
+[[training_data]]
+name = "Cabra 10k (internal dataset)"
+url = ""
+
+[knowledge_cutoff]
+date = ""
+type = ""

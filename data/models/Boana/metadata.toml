@@ -1,0 +1,28 @@
+name = "Boana 7B Instruct"
+url = "https://huggingface.co/lrds-code/boana-7b-instruct"
+release_date = "2024-01-23"
+license = "Academic Free License v3.0"
+language_varieties = [ "pt-BR" ]
+size = "7B"
+base_model = "LLaMA 2 7B"
+model_id = "boana-7b-instruct"
+
+training_data = [ ]
+
+[[origin]]
+name = "Leonardo Rodrigues"
+url = "https://huggingface.co/lrds-code"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/lrds-code/boana-7b-instruct"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

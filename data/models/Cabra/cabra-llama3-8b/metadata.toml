@@ -1,0 +1,15 @@
+name = "Cabra Llama 3 8B"
+url = "https://huggingface.co/botbotrobotics/CabraLlama3-8b"
+release_date = "2024-06-20"
+license = "Llama 3 Community License"
+size = "8B"
+base_model = "Meta Llama 3"
+model_id = "CabraLlama3-8b"
+
+[[training_data]]
+name = "Cabra 30k (internal dataset)"
+url = ""
+
+[knowledge_cutoff]
+date = ""
+type = ""
