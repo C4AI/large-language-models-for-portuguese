@@ -1,0 +1,28 @@
+name = "Samba"
+url = "https://huggingface.co/lrds-code/samba-1.1B"
+release_date = ""
+license = "Academic Free License v3.0"
+language_varieties = [ ]
+size = "1B"
+base_model = "TinyLlama-1.1B"
+model_id = "lrds-code/samba-1.1B"
+
+training_data = [ ]
+
+[[origin]]
+name = "Leonardo Souza"
+url = "https://www.linkedin.com/in/leonardo-souza-289a16b3/"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/lrds-code/boana-7b-instruct/tree/main"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

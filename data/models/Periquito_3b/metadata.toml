@@ -1,0 +1,30 @@
+name = "Periquito-3b"
+url = "https://huggingface.co/wandgibaut/periquito-3B"
+release_date = "2023-09-20"
+license = "Apache 2.0"
+language_varieties = [ ]
+size = "4B"
+base_model = "LLaMA 3B"
+model_id = "wandgibaut/periquito-3B"
+
+[[training_data]]
+name = "Portuguese Wikipedia"
+url = "https://huggingface.co/wandgibaut/periquito-3B"
+
+[[origin]]
+name = "Wandemberg Gibaut"
+url = "https://www.linkedin.com/in/wandgibaut/?locale=en_US"
+
+[weight_availability]
+available_now = true
+url = "http://huggingface.co/wandgibaut/periquito-3B/tree/main"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""

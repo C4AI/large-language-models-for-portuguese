@@ -1,0 +1,20 @@
+name = "Amadeus-Verbo"
+release_date = "2025-06-03"
+license = "apache-2.0"
+language_varieties = ["pt-BR"]
+
+training_data = [ ]
+
+[[origin]]
+name = "Amadeus AI"
+url = "https://www.linkedin.com/company/amadeus-ai/?originalSubdomain=br"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = ""
+type = ""
