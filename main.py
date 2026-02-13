@@ -195,7 +195,7 @@ def generate_html(
         models_html=models_html,
         outro_html=outro_html,
     )
-    (output_directory / "index.html").write_text(html)
+    (output_directory / "index.html").write_text(html,encoding="utf-8")
 
 
 def main():

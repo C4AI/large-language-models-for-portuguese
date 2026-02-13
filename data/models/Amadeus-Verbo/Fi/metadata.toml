@@ -1,0 +1,2 @@
+name = "Amadeus-Verbo FI"
+base_model = "Qwen2.5-7B-Instruct"

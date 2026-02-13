@@ -1,0 +1,8 @@
+name = "Amadeus-Verbo-MI-Qwen-2.5-7B-PT-BR-Instruct-Experimental"
+size = "8B"
+model_id = "amadeusai/Amadeus-Verbo-MI-Qwen-2.5-7B-PT-BR-Instruct-Experimental"
+url = "https://huggingface.co/amadeusai/Amadeus-Verbo-MI-Qwen-2.5-7B-PT-BR-Instruct-Experimental"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/amadeusai/Amadeus-Verbo-MI-Qwen-2.5-7B-PT-BR-Instruct-Experimental"

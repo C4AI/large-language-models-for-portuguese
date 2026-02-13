@@ -1,0 +1,30 @@
+name = "Caramelo"
+url = "https://huggingface.co/Bruno/Caramelo_7B"
+release_date = "2023-06-09"
+license = "Apache 2.0"
+language_varieties = [ "pt-BR" ]
+size = "7B"
+base_model = "Falcon-7B"
+model_id = "Bruno/Caramelo_7B"
+
+[[training_data]]
+name = "Cleaned Alpaca (automatically translated)"
+url = "https://github.com/gururise/AlpacaDataCleaned"
+
+[[origin]]
+name = "Bruno Henrique"
+url = "https://github.com/brunotech"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/Bruno/Caramelo_7B/tree/main"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false
+
+[knowledge_cutoff]
+date = "2023-06"
+type = "possibly_later"
