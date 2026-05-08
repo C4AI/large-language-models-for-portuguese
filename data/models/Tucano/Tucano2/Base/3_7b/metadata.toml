@@ -1,0 +1,17 @@
+name = "Tucano2-3.7B-Base"
+model_id = "Polygl0t/Tucano2-3.7B-Base"
+size = "3.7B"
+base_model = "Qwen3-4B-Base"
+url = "https://huggingface.co/Polygl0t/Tucano2-qwen-3.7B-Base"
+
+[[training_data]]
+name = "Polygl0t/gigaverbo-v2"
+url = "https://huggingface.co/datasets/Polygl0t/gigaverbo-v2"
+
+[[training_data]]
+name = "Polygl0t/gigaverbo-v2-synth"
+url = "https://huggingface.co/datasets/Polygl0t/gigaverbo-v2-synth"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/Polygl0t/Tucano2-qwen-3.7B-Base"

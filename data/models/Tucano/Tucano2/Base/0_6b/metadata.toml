@@ -1,0 +1,41 @@
+name = "Tucano2-0.5B-Base"
+model_id = "Polygl0t/Tucano2-0.5B-Base"
+size = "0.6B"
+base_model = "Qwen3-0.6B-Base"
+url = "https://huggingface.co/Polygl0t/Tucano2-0.6B-Base"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/Polygl0t/Tucano2-0.6B-Base"
+
+[[training_data]]
+name = "Polygl0t/gigaverbo-v2"
+url = "https://huggingface.co/datasets/Polygl0t/gigaverbo-v2"
+
+[[training_data]]
+name = "Polygl0t/gigaverbo-v2-synth"
+url = "https://huggingface.co/datasets/Polygl0t/gigaverbo-v2-synth"
+
+[[training_data]]
+name = "allenai/big-reasoning-traces"
+url = "https://huggingface.co/datasets/allenai/big-reasoning-traces"
+
+[[training_data]]
+name = "HuggingFaceTB/smollm-corpus"
+url = "https://huggingface.co/datasets/HuggingFaceTB/smollm-corpus"
+
+[[training_data]]
+name = "HuggingFaceTB/finemath"
+url = "https://huggingface.co/datasets/HuggingFaceTB/finemath"
+
+[[training_data]]
+name = "HuggingFaceFW/fineweb-edu"
+url = "https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu"
+
+[[training_data]]
+name = "allenai/math-meta-reasoning-filtered"
+url = "https://huggingface.co/datasets/allenai/math-meta-reasoning-filtered"
+
+[[training_data]]
+name = "nvidia/OpenScience"
+url = "https://huggingface.co/datasets/nvidia/OpenScience"

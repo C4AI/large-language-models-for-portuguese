@@ -1,0 +1,4 @@
+name = "Curio TinyLlama"
+license = "apache-2.0"
+base_model = "TinyLlama-1.1B-1T"
+size = "1.1B"

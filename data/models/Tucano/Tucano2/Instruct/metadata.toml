@@ -1,0 +1,10 @@
+name = "Tucano 2 Instruct"
+base_model = "Tucano2-qwen-0.5B-Base"
+
+[[training_data]]
+name = "Polygl0t/gigaverbo-v2"
+url = "https://huggingface.co/datasets/Polygl0t/gigaverbo-v2"
+
+[[training_data]]
+name = "Polygl0t/gigaverbo-v2-synth"
+url = "https://huggingface.co/datasets/Polygl0t/gigaverbo-v2-synth"

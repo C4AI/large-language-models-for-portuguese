@@ -1,0 +1,7 @@
+name = "Curio 7B"
+url = "https://huggingface.co/ClassiCC-Corpus/Curio-7b"
+model_id = "ClassiCC-Corpus/Curio-7b"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/ClassiCC-Corpus/Curio-7b"

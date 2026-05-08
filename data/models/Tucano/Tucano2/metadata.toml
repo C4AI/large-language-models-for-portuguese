@@ -1,0 +1,15 @@
+name = "Tucano 2"
+release_date = "2026-03-03"
+license = "apache-2.0"
+
+[public_api_availability]
+available_now = true
+url = "https://huggingface.co/collections/Polygl0t/tucano2"
+
+[online_chat_availability]
+available_now = true
+url = "https://huggingface.co/spaces/Polygl0t/Tucano2Cool"
+
+[knowledge_cutoff]
+date = ""
+type = ""

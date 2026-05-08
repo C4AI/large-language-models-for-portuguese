@@ -1,0 +1,24 @@
+name = "Curio"
+language_varieties = ["pt-BR"]
+
+[[training_data]]
+name = "ClassiCC-PT"
+url = "https://huggingface.co/datasets/ClassiCC-Corpus/ClassiCC-PT"
+
+[[origin]]
+name = "Thales Sales Almeida"
+url = "https://orcid.org/0000-0003-0125-630X"
+
+[[origin]]
+name = "Rodrigo Nogueira"
+url = "https://orcid.org/0000-0002-2600-6035"
+
+[[origin]]
+name = "Helio Pedrini Q"
+url = "https://orcid.org/0009-0006-9568-9331"
+
+[public_api_availability]
+available_now = false
+
+[online_chat_availability]
+available_now = false

@@ -1,0 +1,12 @@
+name = "Curio-Edu 1.1B"
+url = "https://huggingface.co/ClassiCC-Corpus/Curio-edu-1.1b"
+release_date = "2025-12"
+model_id = "ClassiCC-Corpus/Curio-edu-1.1b"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/ClassiCC-Corpus/Curio-edu-1.1b"
+
+[knowledge_cutoff]
+date = "2025-12"
+type = "possibly_later"
