@@ -1,0 +1,9 @@
+name = "Curio LLaMA-2"
+license = "llama2"
+base_model = "Llama-2-7B"
+size = "7B"
+release_date = "2025-12"
+
+[knowledge_cutoff]
+date = "2025-11"
+type = "possibly_later"

@@ -1,0 +1,12 @@
+name = "Curio 1.1B Intermediate Checkpoint 50B"
+url = "https://huggingface.co/ClassiCC-Corpus/Curio-1.1b-intermediate-checkpoint-50B"
+release_date = "2025-08"
+model_id = "ClassiCC-Corpus/Curio-1.1b-intermediate-checkpoint-50B"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/ClassiCC-Corpus/Curio-1.1b-intermediate-checkpoint-50B"
+
+[knowledge_cutoff]
+date = "2025-08"
+type = "possibly_later"

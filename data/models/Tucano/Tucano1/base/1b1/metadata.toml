@@ -1,0 +1,8 @@
+name = "Tucano-1b1"
+model_id = "TucanoBR/Tucano-1b1"
+size = "1B"
+url = "https://huggingface.co/TucanoBR/Tucano-1b1"
+
+[weight_availability]
+available_now = true
+url = "https://huggingface.co/TucanoBR/Tucano-1b1"
