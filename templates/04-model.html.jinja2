@@ -12,7 +12,7 @@
     <ul style="margin-top: 0; margin-bottom: 0.2em; padding-left: 1.2em;">
 
         <li>
-            <i>{{ i18n.model_name }}</i>
+            {{ i18n.model_name }}
             <strong>
             {% if model.url %}
                 <a href="{{ model.url }}"> {{ model.name }} </a>
@@ -24,7 +24,7 @@
 
         {% if model.release_date or (model.full_model and not model.full_model.release_date) %}
         <li>
-            <i>{{ i18n.release_date }}</i>
+            {{ i18n.release_date }}
             {% if model.release_date == 'future' %}
                 {{ i18n.release_date_future }}
             {% elif model.release_date %}
@@ -37,7 +37,7 @@
 
         {% if model.license or (model.full_model and not model.full_model.license) %}
         <li>
-            <i>{{ i18n.license }}</i>
+            {{ i18n.license }}
             {% if not model.license %}
                 {{ i18n.license_not_found }}
             {% elif model.license == 'proprietary' %}
@@ -50,7 +50,7 @@
 
         {% if model.size or (model.full_model and not model.full_model.size) %}
         <li>
-            <i>{{ i18n.size }}</i>
+            {{ i18n.size }}
             {% if model.size %}
                 {{ model.size }}
             {% else %}
@@ -62,7 +62,7 @@
 
         {% if model.base_model or (model.full_model and not model.full_model.base_model) %}
         <li>
-            <i>{{ i18n.base_model }}</i>
+            {{ i18n.base_model }}
             {% if model.base_model %}
                 {{ translate_value(model.base_model) }}
             {% else %}
@@ -73,7 +73,7 @@
 
         {% if (model.knowledge_cutoff and model.knowledge_cutoff.date) or (model.full_model and not model.full_model.knowledge_cutoff.date) %}
         <li>
-            <i>{{ i18n.knowledge_cutoff }}</i>
+            {{ i18n.knowledge_cutoff }}
             {% if not model.knowledge_cutoff or not model.knowledge_cutoff.date %}
                 {{ i18n.knowledge_cutoff_not_found }}
             {% else %}
@@ -91,7 +91,7 @@
 
         {% if model.origin or (model.full_model and not model.full_model.origin) %}
         <li>
-            <i>{{ i18n.origin }}</i>
+            {{ i18n.origin }}
             {% if model.origin %}
                 {% if model.origin | length == 1 %}
                     {% set o = model.origin[0] %}
@@ -121,7 +121,7 @@
 
         {% if model.training_data or (model.full_model and not model.full_model.training_data) %}
             <li>
-                <i>{{ i18n.training_data }}</i>
+                {{ i18n.training_data }}
                 {% if model.training_data %}
                     {% if model.training_data | length == 1 %}
                         {% set t = model.training_data[0] %}
@@ -152,9 +152,9 @@
         {% if model.language_varieties or (model.full_model and not model.full_model.language_varieties) %}
         <li>
             {% if model.language_varieties | length == 1 %}
-                <i>{{ i18n.language_variety }}</i>
+                {{ i18n.language_variety }}
             {% else %}
-                <i>{{ i18n.language_varieties }}</i>
+                {{ i18n.language_varieties }}
             {% endif %}
             {% if model.language_varieties %}
                 {% for lv in model.language_varieties %}
@@ -169,7 +169,7 @@
 
         {% if model.model_id or (model.full_model and not model.full_model.model_id) %}
         <li>
-            <i>{{ i18n.model_id }}</i>
+            {{ i18n.model_id }}
             {% if model.model_id %}
                 <code>{{ model.model_id }}</code>
             {% else %}
@@ -180,7 +180,7 @@
 
         {% if model.weight_availability %}
             <li>
-                <i>{{ i18n.weight_availability }}</i>
+                {{ i18n.weight_availability }}
                 {% if model.weight_availability.available_now %}
                     <a href="{{ model.weight_availability.url }}">{{ i18n.weight_availability_yes }}</a>
                 {% elif model.weight_availability.planned %}
@@ -193,7 +193,7 @@
 
         {% if model.public_api_availability %}
         <li>
-            <i>{{ i18n.public_api_availability }}</i>
+            {{ i18n.public_api_availability }}
             {% if model.public_api_availability.available_now %}
                 <a href="{{ model.public_api_availability.url }}">{{ i18n.public_api_availability_yes }}</a>
             {% elif model.public_api_availability.planned %}
@@ -206,7 +206,7 @@
 
         {% if model.online_chat_availability %}
         <li>
-            <i>{{ i18n.online_chat_availability }}</i>
+            {{ i18n.online_chat_availability }}
             {% if model.online_chat_availability.available_now %}
                 <a href="{{ model.online_chat_availability.url }}">{{ i18n.online_chat_availability_yes }}</a>
             {% elif model.online_chat_availability.planned %}
